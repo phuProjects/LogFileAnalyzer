@@ -54,10 +54,20 @@ class LogFileAnalyzer:
         end = time.pop()
         return end
 
-    def activity_at(self, time):
-        pass
-    def ip_at(self,time):
-        pass
+    def activity_ip_at(self, time_frame):
+        time_pattern = re.compile(r'\b\d{2}:\d{2}:\d{2}\b')
+    
+        for line in self.log_data:
+            
+            if time_pattern.search(line) and time_frame in line:
+                activity_pattern = re.compile(r'UserActivity: (\w+)')
+                activity_search = activity_pattern.search(line)
+                activity_match = activity_search.group(1)
+
+                ip_pattern = re.compile(r'\b(?:[0-9]{1,3}\.){3}[0-9]{1,3}\b')
+                ip_search = ip_pattern.search(line)
+                ip_match = ip_search.group()
+                print(f"Hour: {time_frame} - IP address: {ip_match} - Activity: {activity_match}")
 
 
 
@@ -67,8 +77,9 @@ analyze = LogFileAnalyzer('example.txt')
 analyze.count_error()
 analyze.count_ip_adresses()
 analyze.count_user_activities()
-print(analyze.start_time())
-print(analyze.end_time())
+
+
+analyze.activity_ip_at('12:30:00')
 
 
 
