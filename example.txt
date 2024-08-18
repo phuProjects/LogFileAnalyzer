@@ -1,0 +1,7 @@
+INFO 2024-08-17 12:00:00 UserActivity: login IP: 192.168.1.1
+ERROR 2024-08-17 12:05:00 Failed to connect to database IP: 192.168.1.1
+INFO 2024-08-17 12:10:00 UserActivity: view_page IP: 10.0.0.2
+ERROR 2024-08-17 12:15:00 Disk space low IP: 192.168.1.1
+INFO 2024-08-17 12:20:00 UserActivity: logout IP: 10.0.0.2
+ERROR 2024-08-17 12:25:00 Failed to send email IP: 172.16.0.1
+INFO 2024-08-17 12:30:00 UserActivity: login IP: 192.168.1.1
